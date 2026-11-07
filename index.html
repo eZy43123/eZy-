@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK SOULS III</title>
+    <!-- Import Cinzel font for authentic Dark Souls typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
+            background-color: #0d0d0d;
+            color: #d4d4d4;
+            user-select: none;
+        }
+
+        /* Background & Atmosphere */
+        .ds-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #181615 0%, #0d0c0b 70%, #050505 100%);
+            z-index: 1;
+        }
+
+        /* Vignette & Ash overlay */
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.95);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #emberCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* UI Container */
+        .ds-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+        }
+
+        /* Title Logo Wrapper */
+        .ds-logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: fadeInLogo 2.5s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* Smooth radial glow behind title */
+        .ds-logo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 220%;
+            background: radial-gradient(ellipse at center, rgba(230, 110, 20, 0.28) 0%, rgba(180, 60, 10, 0.12) 45%, rgba(0,0,0,0) 75%);
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(20px);
+        }
+
+        .ds-logo-text {
+            position: relative;
+            z-index: 2;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 6.5rem;
+            letter-spacing: 0.18em;
+            color: #f5f2eb;
+            text-shadow: 0 0 15px rgba(245, 242, 235, 0.5), 0 0 35px rgba(210, 90, 20, 0.4), 0 0 70px rgba(150, 40, 0, 0.3);
+            display: flex;
+            align-items: baseline;
+        }
+
+        /* Trademark Symbol */
+        .ds-tm {
+            font-size: 1rem;
+            position: relative;
+            top: -3.6rem;
+            margin-right: 0.8rem;
+            opacity: 0.85;
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+
+        /* Roman Numeral III */
+        .ds-roman-numeral {
+            font-size: 6.8rem;
+            margin-left: 0.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Copyright / Version Footer Positioned at Bottom */
+        .ds-footer {
+            position: absolute;
+            bottom: 35px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: #837c73;
+            opacity: 0;
+            font-family: 'Times New Roman', serif;
+            animation: fadeInFooter 5s ease-out forwards;
+            animation-delay: 3s;
+        }
+
+        /* Animations */
+        @keyframes fadeInLogo {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInFooter {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Local Audio Track -->
+    <audio id="theme-audio" loop preload="auto">
+        <source src="darksouls.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="ds-background"></div>
+    <div class="vignette"></div>
+    <canvas id="emberCanvas"></canvas>
+
+    <div class="ds-container">
+        <!-- Logo Structure -->
+        <div class="ds-logo-wrapper">
+            <div class="ds-logo-text">
+                DARK SOULS<span class="ds-tm">TM</span><span class="ds-roman-numeral">III</span>
+            </div>
+        </div>
+
+        <!-- Footer Information -->
+        <div class="ds-footer">
+            Dark Souls™ III & ©2016 BANDAI NAMCO Entertainment Inc. / ©2011-2016 FromSoftware, Inc.
+        </div>
+    </div>
+
+<script>
+    // --- Ember / Ash Particle Simulation ---
+    const canvas = document.getElementById('emberCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    const embers = [];
+    const numEmbers = 280;
+
+    class Ember {
+        constructor() {
+            this.reset();
+        }
+
+        reset() {
+            this.x = Math.random() * width;
+            this.y = height + (Math.random() * 60);
+            this.size = Math.random() * 3.2 + 1.0;
+            this.speedY = Math.random() * 1.4 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.8;
+            this.opacity = Math.random() * 0.85 + 0.15;
+            this.fadeRate = Math.random() * 0.002 + 0.0008;
+            
+            const randColor = Math.random();
+            if (randColor > 0.6) {
+                this.color = '#ffaa33';
+            } else if (randColor > 0.2) {
+                this.color = '#ff5500';
+            } else {
+                this.color = '#ffcc00';
+            }
+        }
+
+        update() {
+            this.y -= this.speedY;
+            this.x += this.speedX + Math.sin(this.y * 0.015) * 0.5;
+            this.opacity -= this.fadeRate;
+
+            if (this.y < -15 || this.opacity <= 0) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.save();
+            ctx.globalAlpha = Math.max(0, this.opacity);
+            ctx.fillStyle = this.color;
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = this.color;
+            ctx.fillRect(this.x, this.y, this.size, this.size * 2.2);
+            ctx.restore();
+        }
+    }
+
+    for (let i = 0; i < numEmbers; i++) {
+        const emb = new Ember();
+        emb.y = Math.random() * height;
+        embers.push(emb);
+    }
+
+    function animateEmbers() {
+        ctx.clearRect(0, 0, width, height);
+        embers.forEach(ember => {
+            ember.update();
+            ember.draw();
+        });
+        requestAnimationFrame(animateEmbers);
+    }
+
+    animateEmbers();
+
+    // --- Audio Playback Handler ---
+    const audio = document.getElementById('theme-audio');
+
+    audio.play().catch(() => {
+        const unlockAudio = () => {
+            audio.play();
+            window.removeEventListener('click', unlockAudio);
+            window.removeEventListener('keydown', unlockAudio);
+        };
+        window.addEventListener('click', unlockAudio);
+        window.addEventListener('keydown', unlockAudio);
+    });
+</script>
+</body>
+</html>
