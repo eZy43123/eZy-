@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zulfaqar Ahmed | Cybersecurity Student</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1: Name and university -->
+  <header class="top-bar">
+    <h1>Zulfaqar Ahmed</h1>
+    <p>Al-Ameen University</p>
+  </header>
+
+  <!-- 2: Progress meters -->
+  <main>
+    <h2>My cybersecurity progress</h2>
+
+    <section class="cards">
+
+      <!-- To change a meter: edit aria-valuenow, --value, and the number inside <span> -->
+      <article class="card">
+        <div class="meter" role="meter" aria-label="Python progress"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--value: 60;">
+          <span>60%</span>
+        </div>
+        <h3>Python</h3>
+        <p>Scripting and automation</p>
+      </article>
+
+      <article class="card">
+        <div class="meter" role="meter" aria-label="Networking progress"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="--value: 40;">
+          <span>40%</span>
+        </div>
+        <h3>Networking</h3>
+        <p>TCP/IP, protocols, and the OSI model</p>
+      </article>
+
+      <article class="card">
+        <div class="meter" role="meter" aria-label="Linux progress"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" style="--value: 25;">
+          <span>25%</span>
+        </div>
+        <h3>Linux</h3>
+        <p>Command line and system security</p>
+      </article>
+
+    </section>
+  </main>
+
+</body>
+</html>
