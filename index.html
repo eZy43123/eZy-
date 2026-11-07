@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ali Saad Jasim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ali Saad Jasim</h1>
+  </header>
+
+  <main class="cards">
+
+    <section class="card-wrap">
+      <div class="card" tabindex="0">
+        <p>Devil May Cry<br>Platinum Achieved</p>
+      </div>
+      <svg class="trophy" viewBox="0 0 64 64" role="img" aria-label="Platinum trophy">
+        <use href="#trophy-icon"/>
+      </svg>
+    </section>
+
+    <section class="card-wrap">
+      <div class="card" tabindex="0">
+        <p>Celeste<br>Platinum Achieved</p>
+      </div>
+      <svg class="trophy" viewBox="0 0 64 64" role="img" aria-label="Platinum trophy">
+        <use href="#trophy-icon"/>
+      </svg>
+    </section>
+
+    <section class="card-wrap">
+      <div class="card" tabindex="0">
+        <p>Resident Evil Village<br>Platinum Achieved</p>
+      </div>
+      <svg class="trophy" viewBox="0 0 64 64" role="img" aria-label="Platinum trophy">
+        <use href="#trophy-icon"/>
+      </svg>
+    </section>
+
+  </main>
+
+  <!-- Platinum trophy icon, defined once and reused under each card -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="plat" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset="0.5" stop-color="#b9c7d6"/>
+        <stop offset="1" stop-color="#7f93a8"/>
+      </linearGradient>
+      <g id="trophy-icon">
+        <path d="M18 8h28v14c0 9-6 16-14 16S18 31 18 22V8z" fill="url(#plat)"/>
+        <path d="M18 12H8c0 10 4 16 12 18M46 12h10c0 10-4 16-12 18" fill="none" stroke="url(#plat)" stroke-width="4" stroke-linecap="round"/>
+        <rect x="29" y="38" width="6" height="10" fill="url(#plat)"/>
+        <path d="M20 56c0-5 5-8 12-8s12 3 12 8z" fill="url(#plat)"/>
+      </g>
+    </defs>
+  </svg>
+</body>
+</html>
