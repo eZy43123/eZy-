@@ -1,0 +1,26 @@
+body {
+  background-color: rgb(6, 6, 6); 
+  font-family: serif, 'Arial Narrow Bold', sans-serif; /* font style */
+  font-size: 30px; /* font size */
+}
+
+/* these were nested inside body { } before, I moved them out so older browsers (old iPhones, old Chrome) still apply them */
+h1 {
+  color: rgb(253, 253, 253);
+  /*font-family: fantasy; you can do that */
+}
+p {
+  color: rgb(249, 250, 251);
+}
+h3 {
+  color: rgb(247, 246, 244);
+}
+h1, h3, p {
+  margin: 0; /* this margin thingy controls spacing , pretty net */
+}
+.text_info {
+  font-size: x-large; /* check HTML file For More Info About Classes */
+}
+.Crisis {
+  font-size: x-large;
+}
