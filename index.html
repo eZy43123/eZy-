@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Saad · The God Gamer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Barlow:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<audio id="bgm" src="beneath-the-mask.mp3" loop preload="auto"></audio>
+<div class="sound" id="sound"><button id="music" class="music" type="button" aria-label="Background music" aria-pressed="false" title="Music on/off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="waves" d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/><path class="mute" d="M17 9l5 6M22 9l-5 6"/></svg></button>
+<input id="vol" class="vol" type="range" min="0" max="100" step="1" value="60" aria-label="Music volume"></div>
+<main>
+  <section class="box name"><h1>Ali Saad</h1>
+  <p class="nick"><a href="https://steamcommunity.com/profiles/76561198754484988/" target="_blank" rel="noopener noreferrer">eZy</a></p></section>
+
+  <section class="box motto">
+    <div class="pad" aria-hidden="true">
+      <span><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg></span>
+      <span><svg viewBox="0 0 24 24"><path d="M12 5l8 14H4z"/></svg></span>
+    </div>
+    <h2>The God Gamer</h2>
+    <p><strong>6 Platinums</strong> On Steam, <strong>188 Hours</strong> Of Grinding To Eternal Glory.</p>
+  </section>
+
+  <article class="box game" data-h="68">
+    <div class="cover"><img src="vergil.jpg?v=3" alt="Vergil from Devil May Cry 5" width="720" height="900"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/601150/Devil_May_Cry_5/" target="_blank" rel="noopener noreferrer">Devil May Cry 5</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>The ultimate Devil Hunter is back in style, in the game action fans have been waiting for.</p>
+    <div class="hours"><b data-count="68">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <article class="box game" data-h="16">
+    <div class="cover"><img src="raiden.jpg?v=3" alt="Raiden from Metal Gear Rising: Revengeance" width="720" height="900"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/235460/METAL_GEAR_RISING_REVENGEANCE/" target="_blank" rel="noopener noreferrer">Metal Gear Rising</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>METAL GEAR RISING: REVENGEANCE takes the renowned METAL GEAR franchise into exciting new territory with an all-new action experience. The game seamlessly melds pure action and epic story-telling that surrounds Raiden.</p>
+    <div class="hours"><b data-count="16">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <article class="box game" data-h="22">
+    <div class="cover"><img src="Jill-Valentine-Resident-Evil-3.jpg" alt="Jill Valentine from Resident Evil 3" width="720" height="900"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/952060/Resident_Evil_3/" target="_blank" rel="noopener noreferrer">Resident Evil 3</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>Jill Valentine is one of the last remaining people in Raccoon City to witness the atrocities Umbrella performed. To stop her, Umbrella unleashes their ultimate secret weapon: Nemesis!.</p>
+    <div class="hours"><b data-count="22">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <article class="box game" data-h="18">
+    <div class="cover"><img src="Celeste Box art.jpg" alt="Madeline from Celeste" width="736" height="1184"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/504230/Celeste/" target="_blank" rel="noopener noreferrer">Celeste</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.</p>
+    <div class="hours"><b data-count="18">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <article class="box game" data-h="45">
+    <div class="cover"><img src="dark-souls-3.jpg" alt="Armored knight from Dark Souls III" width="720" height="1080"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/374320/DARK_SOULS_III/" target="_blank" rel="noopener noreferrer">Dark Souls III</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>Rise as the Ashen One and hunt the Lords of Cinder through a dying world of ash and ruin, in the brutal, rewarding finale of the Dark Souls trilogy.</p>
+    <div class="hours"><b data-count="45">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <article class="box game" data-h="19">
+    <div class="cover"><img src="theevilwithin.jpg" alt="Veiled bust from The Evil Within" width="225" height="400"></div>
+    <div class="trophy"><img src="trophy.png?v=3" alt="Platinum trophy" width="128" height="128"></div>
+    <h3><a href="https://store.steampowered.com/app/268050/The_Evil_Within/" target="_blank" rel="noopener noreferrer">The Evil Within</a></h3>
+    <span class="badge">100% Platinum</span>
+    <p>Survive a nightmare of twisted flesh and shifting realities as Detective Sebastian Castellanos, in survival horror from the creator of Resident Evil, where every bullet and every match counts.</p>
+    <div class="hours"><b data-count="19">0</b><span>Hours To Platinum</span></div>
+    <div class="bar"><i data-w="100"></i></div>
+  </article>
+
+  <footer>© Ali Saad · Steam Platinum Collection</footer>
+</main>
+<script src="script.js?v=3"></script>
+<script>
+(function(){
+  var c=document.getElementById('stars'),g=c&&c.getContext('2d');
+  if(!g)return;
+  var calm=matchMedia('(prefers-reduced-motion:reduce)').matches,W,H,D,P=[],S=[],lw=innerWidth,last=0,
+      T=['255,255,255','190,215,255','255,232,200','215,190,255'];
+  T.forEach(function(k){
+    var s=document.createElement('canvas'),q=s.getContext('2d'),r;
+    s.width=s.height=64;r=q.createRadialGradient(32,32,0,32,32,32);
+    r.addColorStop(0,'rgba(255,255,255,1)');r.addColorStop(.14,'rgba('+k+',.9)');
+    r.addColorStop(.4,'rgba('+k+',.2)');r.addColorStop(1,'rgba('+k+',0)');
+    q.fillStyle=r;q.fillRect(0,0,64,64);S.push(s);
+  });
+  function make(){
+    var z=Math.random(),a=Math.random()*6.2832,v=(.05+z*.3)*D,i=Math.floor(Math.random()*T.length);
+    return{x:Math.random()*W,y:Math.random()*H,big:z>.9,r:(.5+z*1.1)*D,s:(16+Math.random()*10)*D,
+      vx:Math.cos(a)*v,vy:Math.sin(a)*v,w:(.02+Math.random()*.06)*D,al:.3+z*.7,
+      f:.5+Math.random()*1.6,p:Math.random()*6.2832,c:S[i],k:'rgb('+T[i]+')'};
+  }
+  function draw(t){
+    g.clearRect(0,0,W,H);
+    P.forEach(function(e){
+      g.globalAlpha=e.al*(calm?1:.55+.45*Math.sin(t*e.f+e.p));
+      if(e.big)g.drawImage(e.c,e.x-e.s/2,e.y-e.s/2,e.s,e.s);
+      else{g.fillStyle=e.k;g.beginPath();g.arc(e.x,e.y,e.r,0,6.2832);g.fill()}
+    });
+  }
+  function move(dt,t){
+    P.forEach(function(e){
+      var m=e.s+8*D;
+      e.x+=(e.vx+Math.sin(t*e.f*.5+e.p)*e.w)*dt;
+      e.y+=(e.vy+Math.cos(t*e.f*.4+e.p)*e.w)*dt;
+      if(e.x<-m)e.x=W+m;else if(e.x>W+m)e.x=-m;
+      if(e.y<-m)e.y=H+m;else if(e.y>H+m)e.y=-m;
+    });
+  }
+  function fit(){
+    var i,n=Math.round(Math.max(70,Math.min(190,innerWidth*innerHeight/9000)));
+    D=Math.min(devicePixelRatio||1,2);W=c.width=innerWidth*D;H=c.height=innerHeight*D;
+    P=[];for(i=0;i<n;i++)P.push(make());
+    if(calm)draw(0);
+  }
+  function tick(ms){
+    var dt=Math.min(3,(ms-(last||ms))/16.67);last=ms;
+    move(dt,ms/1000);draw(ms/1000);requestAnimationFrame(tick);
+  }
+  addEventListener('resize',function(){
+    if(innerWidth!==lw){lw=innerWidth;fit()}else{H=c.height=innerHeight*D;if(calm)draw(0)}
+  });
+  fit();if(!calm)requestAnimationFrame(tick);
+})();
+</script>
+<script>
+(function(){
+  var a=document.getElementById('bgm'),b=document.getElementById('music'),r=document.getElementById('vol'),w=document.getElementById('sound'),
+      K='bgm-off',V='bgm-vol',off=false,last=60,E=['click','keydown','touchend'];
+  if(!a||!b||!r||!w)return;
+  function put(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  try{
+    off=localStorage.getItem(K)==='1';
+    var s=parseInt(localStorage.getItem(V),10);
+    if(s>=0&&s<=100)r.value=s;
+  }catch(e){}
+  function sync(){var on=!a.paused&&a.volume>0;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)}
+  function apply(v){a.volume=Math.pow(v/100,2);r.style.setProperty('--v',v+'%');if(v>0)last=v;sync()}
+  function setVol(v){r.value=v;apply(v);put(V,v)}
+  a.volume=.5;if(Math.abs(a.volume-.5)>.01)w.classList.add('novol');
+  apply(+r.value);
+  function go(e){
+    if(b.contains(e.target))return;
+    E.forEach(function(n){removeEventListener(n,go,true)});
+    if(!off)a.play().catch(function(){});
+  }
+  a.addEventListener('play',sync);a.addEventListener('pause',sync);
+  a.addEventListener('error',function(){w.hidden=true});
+  r.addEventListener('input',function(){setVol(+r.value)});
+  b.addEventListener('click',function(){
+    if(!a.paused&&a.volume>0){off=true;a.pause()}
+    else{off=false;if(a.volume===0)setVol(last);a.play().catch(function(){})}
+    put(K,off?'1':'0');
+  });
+  if(!off){
+    var p=a.play();
+    if(p&&p.catch)p.catch(function(){E.forEach(function(n){addEventListener(n,go,true)})});
+  }
+})();
+</script>
+</body>
+</html>
